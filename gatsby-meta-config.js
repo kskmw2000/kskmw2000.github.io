@@ -2,7 +2,7 @@ module.exports = {
   title: `my developer history`,
   description: ``,
   author: `angeloper`,
-  introduction: `개발이 재미있어 살맛난다.`,
+  introduction: `Development is fun and it's worth living.`,
   siteUrl: `https://kskmw2000.github.io`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
@@ -29,5 +29,4 @@ module.exports = {
   },
   ga: '0', // Add your google analytics tranking ID
   ad: '', // Add your google adsense publisherId `ca-pub-xxxxxxxxxx`
-
 }
