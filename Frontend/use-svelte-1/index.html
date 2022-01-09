@@ -64,160 +64,384 @@
       
       
       
-      }</script><link rel="icon" href="/icons/icon-48x48.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">MongoDB 사용법-1 | my developer history</title><meta data-react-helmet="true" name="description" content="오늘은 제가 길벗의 가장 빨리 만나는 스벨트의 마지막 장을 따라하다보니, 에 대한 부분이 존재하여 제가 사용한 부분을 정리하려고 합니다. 사용하는 방법 사용하는 방법은 제가 아는 방법으로는 2가지 방법이 존재합니다. mongodb 사이트에서 제공하는 cloud 사용 컴퓨터에 설치하여 사용하는 방법 mongodb 사이트에서 제공하는 cloud 사용 이 방법은 https://www.mongodb.com…"/><meta data-react-helmet="true" property="og:title" content="MongoDB 사용법-1"/><meta data-react-helmet="true" property="og:description" content="오늘은 제가 길벗의 가장 빨리 만나는 스벨트의 마지막 장을 따라하다보니, 에 대한 부분이 존재하여 제가 사용한 부분을 정리하려고 합니다. 사용하는 방법 사용하는 방법은 제가 아는 방법으로는 2가지 방법이 존재합니다. mongodb 사이트에서 제공하는 cloud 사용 컴퓨터에 설치하여 사용하는 방법 mongodb 사이트에서 제공하는 cloud 사용 이 방법은 https://www.mongodb.com…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="angeloper"/><meta data-react-helmet="true" name="twitter:title" content="MongoDB 사용법-1"/><meta data-react-helmet="true" name="twitter:description" content="오늘은 제가 길벗의 가장 빨리 만나는 스벨트의 마지막 장을 따라하다보니, 에 대한 부분이 존재하여 제가 사용한 부분을 정리하려고 합니다. 사용하는 방법 사용하는 방법은 제가 아는 방법으로는 2가지 방법이 존재합니다. mongodb 사이트에서 제공하는 cloud 사용 컴퓨터에 설치하여 사용하는 방법 mongodb 사이트에서 제공하는 cloud 사용 이 방법은 https://www.mongodb.com…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-0e9f101adb4c8ab915e0.js"/><link as="script" rel="preload" href="/framework-727eca7a674e10b21a9f.js"/><link as="script" rel="preload" href="/app-66dcbe49226a0e9c124b.js"/><link as="script" rel="preload" href="/styles-9605c3fbd8ad08ecf405.js"/><link as="script" rel="preload" href="/428cc97b99dda93b6f894a0194db3c3a0ab8bbd5-b9cdbc495dc2d8ef3640.js"/><link as="script" rel="preload" href="/4213a708e3c149581c4f5e97d71bfc3d00067ec6-752d1b53e3b973e8191e.js"/><link as="script" rel="preload" href="/69ca9dfa785447e3d8b116b383997bcdc8df623a-d95b5bcd9b6035cbd041.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-86e46f66290b6aa04eae.js"/><link as="fetch" rel="preload" href="/page-data/Database/use-mongodb-1/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">my developer history</a><a href="https://github.com/kskmw2000" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:39rem;padding:2.4375rem 1.21875rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>MongoDB 사용법-1</h1><p class="post-date">January 09, 2022</p><div><p>오늘은 제가 길벗의 가장 빨리 만나는 스벨트의 마지막 장을 따라하다보니, <code class="language-text">MongoDB</code>에 대한 부분이 존재하여 제가 사용한 부분을 정리하려고 합니다.</p>
-<h2 id="사용하는-방법" style="position:relative;"><a href="#%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95" aria-label="사용하는 방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>사용하는 방법</h2>
+      }</script><link rel="icon" href="/icons/icon-48x48.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=d785e87462519aef6f5110f35e978e6d"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">스벨트 사용하기-1 | my developer history</title><meta data-react-helmet="true" name="description" content="Svelte 프로젝트를 만드는 방법 첫번째 방법은 sveltejs에서 만들어 놓은 템플릿을 가지고 시작하는 방법입니다. degit : https://www.github.com/sveltejs/template 을 쉽게 가져올 수 있도록 명령어에 대한 alias를 준 느낌이 나기도 합니다. 현재도 git clone https://www.github.com/sveltejs/template &lt;project명&gt; 을 통해서 폴더를 생성하였다면, 위와 같이 간단히 표현하여 repository…"/><meta data-react-helmet="true" property="og:title" content="스벨트 사용하기-1"/><meta data-react-helmet="true" property="og:description" content="Svelte 프로젝트를 만드는 방법 첫번째 방법은 sveltejs에서 만들어 놓은 템플릿을 가지고 시작하는 방법입니다. degit : https://www.github.com/sveltejs/template 을 쉽게 가져올 수 있도록 명령어에 대한 alias를 준 느낌이 나기도 합니다. 현재도 git clone https://www.github.com/sveltejs/template &lt;project명&gt; 을 통해서 폴더를 생성하였다면, 위와 같이 간단히 표현하여 repository…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="angeloper"/><meta data-react-helmet="true" name="twitter:title" content="스벨트 사용하기-1"/><meta data-react-helmet="true" name="twitter:description" content="Svelte 프로젝트를 만드는 방법 첫번째 방법은 sveltejs에서 만들어 놓은 템플릿을 가지고 시작하는 방법입니다. degit : https://www.github.com/sveltejs/template 을 쉽게 가져올 수 있도록 명령어에 대한 alias를 준 느낌이 나기도 합니다. 현재도 git clone https://www.github.com/sveltejs/template &lt;project명&gt; 을 통해서 폴더를 생성하였다면, 위와 같이 간단히 표현하여 repository…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-0e9f101adb4c8ab915e0.js"/><link as="script" rel="preload" href="/framework-727eca7a674e10b21a9f.js"/><link as="script" rel="preload" href="/app-66dcbe49226a0e9c124b.js"/><link as="script" rel="preload" href="/styles-9605c3fbd8ad08ecf405.js"/><link as="script" rel="preload" href="/428cc97b99dda93b6f894a0194db3c3a0ab8bbd5-b9cdbc495dc2d8ef3640.js"/><link as="script" rel="preload" href="/4213a708e3c149581c4f5e97d71bfc3d00067ec6-752d1b53e3b973e8191e.js"/><link as="script" rel="preload" href="/69ca9dfa785447e3d8b116b383997bcdc8df623a-d95b5bcd9b6035cbd041.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-86e46f66290b6aa04eae.js"/><link as="fetch" rel="preload" href="/page-data/Frontend/use-svelte-1/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">my developer history</a><a href="https://github.com/kskmw2000" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:39rem;padding:2.4375rem 1.21875rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>스벨트 사용하기-1</h1><p class="post-date">January 09, 2022</p><div><h2 id="svelte-프로젝트를-만드는-방법" style="position:relative;"><a href="#svelte-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95" aria-label="svelte 프로젝트를 만드는 방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Svelte 프로젝트를 만드는 방법</h2>
 <ul>
+<li>첫번째 방법은 sveltejs에서 만들어 놓은 템플릿을 가지고 시작하는 방법입니다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">npx degit sveltejs/template <span class="token operator">&lt;</span>project명<span class="token operator">></span></code></pre></div>
+<blockquote>
+<p><strong>degit</strong> : <a href="https://www.github.com/sveltejs/template">https://www.github.com/sveltejs/template</a> 을 쉽게 가져올 수 있도록 명령어에 대한 alias를 준 느낌이 나기도 합니다. 현재도 git clone <a href="https://www.github.com/sveltejs/template">https://www.github.com/sveltejs/template</a> &#x3C;project명> 을 통해서 폴더를 생성하였다면, 위와 같이 간단히 표현하여 repository 위치만 안다면 쉽게 가져올 수 있도록 개선된 느낌입니다.</p>
+</blockquote>
+<ul>
+<li>두번째 방법으로 Svelte로 구동되는 애플리케이션 프레임워크로 시작하는 방법입니다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token function">npm</span> init svelte@next <span class="token operator">&lt;</span>project명<span class="token operator">></span></code></pre></div>
+<blockquote>
+<p>sveltekit의 경우에는 현재(2022.01.07)에도 정식버젼으로 출시가 되어 있지 않습니다. 이에, 정식버젼이 출시되기 전까지는 계속적인 변경이 있을 것이라고 판단됩니다.</p>
+</blockquote>
+<h2 id="svelte-의-특징" style="position:relative;"><a href="#svelte-%EC%9D%98-%ED%8A%B9%EC%A7%95" aria-label="svelte 의 특징 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Svelte 의 특징</h2>
+<ul>
+<li>적은 코드</li>
 <li>
-<p>사용하는 방법은 제가 아는 방법으로는 2가지 방법이 존재합니다.</p>
+<p>순수한 리액티비티(반응형)</p>
 <ul>
-<li>mongodb 사이트에서 제공하는 cloud 사용</li>
-<li>컴퓨터에 설치하여 사용하는 방법</li>
+<li>스벨트 공식 사이트에서는 <code class="language-text">Truly reactive</code> 정의하고 있습니다.</li>
 </ul>
 </li>
 </ul>
-<h3 id="mongodb-사이트에서-제공하는-cloud-사용" style="position:relative;"><a href="#mongodb-%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90%EC%84%9C-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-cloud-%EC%82%AC%EC%9A%A9" aria-label="mongodb 사이트에서 제공하는 cloud 사용 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>mongodb 사이트에서 제공하는 cloud 사용</h3>
+<h2 id="svelte-파일의-형식" style="position:relative;"><a href="#svelte-%ED%8C%8C%EC%9D%BC%EC%9D%98-%ED%98%95%EC%8B%9D" aria-label="svelte 파일의 형식 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Svelte 파일의 형식</h2>
 <ul>
-<li>이 방법은 <a href="https://www.mongodb.com/">https://www.mongodb.com/</a> 사이트를 통해서 가입 및 로그인 하여 사용하는 방법입니다. 일부 사용에 대해서는 무료를 제공하고 있으니 확인해 보시기 바랍니다.</li>
-</ul>
-<h3 id="컴퓨터에-설치하여-사용하는-방법" style="position:relative;"><a href="#%EC%BB%B4%ED%93%A8%ED%84%B0%EC%97%90-%EC%84%A4%EC%B9%98%ED%95%98%EC%97%AC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95" aria-label="컴퓨터에 설치하여 사용하는 방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>컴퓨터에 설치하여 사용하는 방법</h3>
-<ul>
-<li>직접 컴퓨터의 설치를 하거나, 저의 경우에는 docker를 개인적으로 사용하고 있기 때문에 docker를 통해서 설치하였습니다.</li>
 <li>
-<p><strong>docker를 통한 설치방법</strong></p>
+<p>스벨트 파일은 다음과 같은 형식으로 표현됩니다.</p>
 <ul>
-<li>docker image는 mongo를 사용합니다.</li>
-<li>docker 내의 명칭은 &#x3C;이름>으로 만들겠습니다.</li>
-<li>컨테이너 안의 27017포트를 외부에서도 27017로 사용하겠습니다.</li>
-<li>컨테이너 안의 /data/db는 <code class="language-text">&lt;pc 내 데이터베이스를 저장할 절대경로></code> 디렉토리를 사용하겠습니다.</li>
+<li>확장자는 <strong>.svelte</strong>로 끝나게 됩니다.</li>
+<li>파일 안의 내용은 다음과 같습니다.</li>
 </ul>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- 자바스크립트 코드 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  스크립트 블록
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!-- HTML 코드 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">></span></span>
+  HTML 블록
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!-- CSS 코드 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  스타일 블록
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre></div>
 </li>
 </ul>
-<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">docker run --name <span class="token operator">&lt;</span>이름<span class="token operator">></span> -v <span class="token operator">&lt;</span>pc 내 데이터베이스를 저장할 절대경로<span class="token operator">></span>:/data/db -d -p <span class="token number">27017</span>:27017 mongo</code></pre></div>
-<h2 id="mongodb의-데이터-구조" style="position:relative;"><a href="#mongodb%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B5%AC%EC%A1%B0" aria-label="mongodb의 데이터 구조 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MongoDB의 데이터 구조</h2>
+<blockquote>
+<p>중요점 : 순수한 리액티비티(반응형)을 사용하기 위해서는 반드시 할당 연산자(=)을 사용해야 합니다.</p>
+</blockquote>
+<h2 id="템플릿-기본-표현식" style="position:relative;"><a href="#%ED%85%9C%ED%94%8C%EB%A6%BF-%EA%B8%B0%EB%B3%B8-%ED%91%9C%ED%98%84%EC%8B%9D" aria-label="템플릿 기본 표현식 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>템플릿 기본 표현식</h2>
+<h3 id="if-블록" style="position:relative;"><a href="#if-%EB%B8%94%EB%A1%9D" aria-label="if 블록 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>if 블록</h3>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html">{#if} {:else if} {/if}</code></pre></div>
 <ul>
-<li><code class="language-text">Database</code> : Collection의 물리적 컨테이너입니다.</li>
-<li><code class="language-text">Collection</code> : RDBMS에서의 table이라고 생각하면 됩니다.</li>
-<li><code class="language-text">Document</code> : MongoDB는 NOSQL로 불리고 있습니다. 이는 Document Oriented Database라고도 합니다. 즉, 한개 이상의 key-value 쌍으로 이루어진 구조를 의미합니다.</li>
-<li><code class="language-text">Key/Field</code> : 일반 RDBMS에서 COLUMN이라 생각하면 됩니다.</li>
+<li>예시</li>
 </ul>
-<h2 id="mongodb-의-명령어" style="position:relative;"><a href="#mongodb-%EC%9D%98-%EB%AA%85%EB%A0%B9%EC%96%B4" aria-label="mongodb 의 명령어 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MongoDB 의 명령어</h2>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token number">0</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">bind:</span>value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{number}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+{#if number > 10}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">></span></span>현재 숫자는 10보다 크며, {number} 입니다.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
+{:else}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">></span></span>숫자가 1~9 사이이며, {number} 입니다.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
+{/if}</code></pre></div>
 <ul>
-<li><code class="language-text">show dbs</code> : 데이터베이스 리스트들을 확인할 수 있습니다.
-<span
+<li>결과</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">10 보다 작을 때</th>
+<th align="center">10 이상일 떄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 426px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 612px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 44.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABgElEQVQoz22S23KjMBBE+SNzB9uIi7AQmIuNHTvJw+7//0VvaxK2klQeuqQRM2d6pvC684j3P3/x8vaOfpxwLBuc7BlNe8L+UCCIEjTGou16aJ664932PzR8nMzxzDBivt4wzBfReLmhny4w/ZmAXuDu3cX9tMCOM6EbZJD719gzn2TndH154vZ4MrYEDLB8m9cbFqpjLI0Jdd87GnGy50nk7uIwURrWdliY7IAdG9RVBWMMxmnGen9iILgsS7Rti7quoXlO84LLesf98Uq9YV6ukuPpfoQqCqRZLl1UVSMIAkRxjJ6dW+4tDENRFEWiLQ55d7lZnmPmqqpaw3PdCwKTJJXiY6Hg73aICWz0iW6MnIUqEfi+gBxkk8+3JE1huGtV1vCci0IpxEkiwMOxYNKOTmJUjf7fZAP9BkzTTKZxtd7AX0VxdufQupHZ5QMYCUyfOhnf/3T3HRjKuxt5WR+oacArubOE7hwg3x/E/laQ5Xtk3O1XR7/J1Tp3KWv/AZm/OcL4XFoQAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 46.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABgklEQVQoz62PTUsCURSGZxMVLWoVpSVRYszeFrVqU2RRKmaBQUnb2gZBYB9URqlBZFlEQUSZ1X9QGRVCDdfiolqJZH4wmDOOb+NVIUp3XXg4POfcc+49lHTmDL1zF2jXnaJr9hydegdo4xUklXzHtAMy9R7kmi30abbRr9sFrTdDrt0Rc2Uv5SVjJkhV66BaJk/QbbgENXKEVrUDTeN2KIzXaJ6wg168Ef0YbcOrkI2ugNZuYmjhAIPz+1AazFBMmUBrNtCjWkODcgmNA8ugbI9h2J5eYH0IweIKkfgH1zNsTh8st4yIj2C988PqLGMTObwPECiAA8em8F+H+kh+4vXtHUIRyHM8OL5Qm0rtK88hL8IXBPCik0goEKhisUgmF0QpwfM8oeq1KPXUg6p+VRCEmitUH6zlv2tk5Wg0Co/Hg0AggFgshkgkgmAwSNzr9cLtdqN0JxwOg2EY+P1+xOPx+gMzmQxSqRSy2SxyuRyJP0mn06SeTCaRSCSIsyxbd+A3a6Jcs5+CtjIAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="show dbs"
-        title="show dbs"
-        src="/static/81bd9f6338b9cca716c64efd1acf82e3/531e1/%5Buse-mongodb-1%5Dshow_dbs.png"
-        srcset="/static/81bd9f6338b9cca716c64efd1acf82e3/5a46d/%5Buse-mongodb-1%5Dshow_dbs.png 300w,
-/static/81bd9f6338b9cca716c64efd1acf82e3/531e1/%5Buse-mongodb-1%5Dshow_dbs.png 426w"
-        sizes="(max-width: 426px) 100vw, 426px"
+        alt="if"
+        title="if"
+        src="/static/29f9b23f2fc2276a60f369a386f4ddd4/8c76f/%5Buse-svelte-1%5Dif-1.png"
+        srcset="/static/29f9b23f2fc2276a60f369a386f4ddd4/5a46d/%5Buse-svelte-1%5Dif-1.png 300w,
+/static/29f9b23f2fc2276a60f369a386f4ddd4/0a47e/%5Buse-svelte-1%5Dif-1.png 600w,
+/static/29f9b23f2fc2276a60f369a386f4ddd4/8c76f/%5Buse-svelte-1%5Dif-1.png 612w"
+        sizes="(max-width: 612px) 100vw, 612px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></td>
+<td align="center"><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 580px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 46.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB2ElEQVQoz62PvWtTURTA3yR0cBFU0tpWo7gpiOLg0k072KgtJhUsmNZPBHVTBFHaIqU2JOIQE5Vu/QekLsUnITiEmG+I6XsPE03NlwlBtEk1TX6+d5OKHcTFAz/uOeee++NcaZfNQ9+ol+3DbnqsHnaMuNl7/gWms0/ptXnptnrZaXFgtkzSPzRFv2WKfWceYj41zR6d3Xpt5L0nJzEN3kfqtj3HPDbPlsEnmKzP2Gpxc+jqAtuGPRy+tkDPuXm6Bu5x8PQd9g/dZcA+y/ErTo6NzQgOjDzgyOg0fSdu03X0OtJl1xsmnD4uunxcmHuNfU7G7pD1XGbc0c7tj5aYmHnJuM6l2UVuOBe55Wpzs4OoH79CUvJ1PqyU0VYqVL43BeU/zjYtyqvw5VuTdKlGpcZfQwprFd76lngXDPCvaDXqZD5+Qi2uGRWN9SbNZpv1DpJSqKOVfqAW1ljO1VjOd8i1MX6w0TNmk59XKX39KYSGqNVqbULiP8SGTHxZURQSiQSZTIZU6j2aplEqFlH1vqoq5HM5cWf0q9UqyWSSbDZLOp0W/UKhsEkqRaNRAoEAsViMSCRCKBQSw36/n2AwqEtVIQmHw0Iky7JYwHgTj8f1JVI0Go3f0l/9TUtlPraw3wAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="if"
+        title="if"
+        src="/static/12812696042262d641cd58e2b5267add/b6272/%5Buse-svelte-1%5Dif-2.png"
+        srcset="/static/12812696042262d641cd58e2b5267add/5a46d/%5Buse-svelte-1%5Dif-2.png 300w,
+/static/12812696042262d641cd58e2b5267add/b6272/%5Buse-svelte-1%5Dif-2.png 580w"
+        sizes="(max-width: 580px) 100vw, 580px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="each-블록" style="position:relative;"><a href="#each-%EB%B8%94%EB%A1%9D" aria-label="each 블록 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>each 블록</h3>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html">{#each array as item, index} {/each}</code></pre></div>
+<ul>
+<li>예시</li>
+</ul>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">let</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'홍길동'</span><span class="token punctuation">,</span> <span class="token string">'하니'</span><span class="token punctuation">,</span> <span class="token string">'영수'</span><span class="token punctuation">,</span> <span class="token string">'하나'</span><span class="token punctuation">]</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>순번<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>이름<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span><span class="token punctuation">></span></span>
+    {#each names as item, index}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>{index + 1}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>{item}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+    {/each}
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span></code></pre></div>
+<ul>
+<li>결과
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 582px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABp0lEQVQoz6WPy0sCYRTFhzYtWrSJwooeaEUEBVHLcFEIQZGWPRZlj2W0SpOCoLDIXrTQnmTPXX9BRbkp6KHRQkyFpgwUbJiJRAYScjzNfNgDamNeONzz3fvx4x5KodtFTvsm8ru2IOuwobh7B6V9+5B12iDX7SFbu4Ei9RwU6mnINTNQiCrvmIei1UzeJW1mlGlnUdA8hdzGSVAlvbtIU1mQ2bKG9EYr8rpEaM8OMppWUTt0gLT6JcgajChUGVCpNUHZvwDlwCLqxF7dOY0KzQSq2k3IUg4jvWYQ1Oj2Nca2r2C0XWB8/0b0l9Cvn8Gwcf6tVTuMK0fQW48wsix2yyEMojeIXup66yGZj6wcg6J9d2Cfg3jjw7h1XuKVY5BKUdcOJ+7pB7DcC05O7Xj0P5HF+3sMMUH4ViwhQfh7nhAVjUYJwOFwwO12w+VyQRA/ShWPx5MWxfM8AdA0Db/fD4ZhyOITmHRkCSCV1+tFIBD4WvwHRoCRSIQY6bpQKPQrbtJAjuOI8fl8CAaDKcUlQJZlifF4PCTyzwv/BQyHw8RIYOnaVC/8AB6KSNN3h8YGAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="each"
+        title="each"
+        src="/static/13b6e724b07ed8c7b4b2cb3e226c6f94/7c1cd/%5Buse-svelte-1%5Deach.png"
+        srcset="/static/13b6e724b07ed8c7b4b2cb3e226c6f94/5a46d/%5Buse-svelte-1%5Deach.png 300w,
+/static/13b6e724b07ed8c7b4b2cb3e226c6f94/7c1cd/%5Buse-svelte-1%5Deach.png 582w"
+        sizes="(max-width: 582px) 100vw, 582px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
       />
     </span></li>
-<li><code class="language-text">use &lt;database명></code> : 데이터베이스를 사용하겠다라는 의미힙니다. 더불어, Database가 없을 시에는 생성이 됩니다.
-<span
+</ul>
+<blockquote>
+<p>참고 : json을 object로 만들시에는 Object.entries(&#x3C;json 객체>)를 사용합니다.</p>
+</blockquote>
+<h3 id="promise를-위한-await-블록" style="position:relative;"><a href="#promise%EB%A5%BC-%EC%9C%84%ED%95%9C-await-%EB%B8%94%EB%A1%9D" aria-label="promise를 위한 await 블록 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Promise를 위한 await 블록</h3>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">{#await}
+  // 동작 중일 때 처리
+{:then res}
+  // 정상 종료 후 처리
+{:catch error}
+ // 에러일 때 처리 {/await}</code></pre></div>
+<ul>
+<li>예시</li>
+</ul>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">promise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> rtn <span class="token operator">=</span> <span class="token keyword">await</span> result
+    <span class="token keyword">return</span> rtn
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+{#await promise()}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>잠시만 기다리세요<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+{:then res}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>데이터는 {res} 입니다.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+{:catch error}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>error: {error}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+{/await}</code></pre></div>
+<table>
+<thead>
+<tr>
+<th align="center">최초</th>
+<th align="center">1초후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 295px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 305px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 35.59322033898306%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABMklEQVQoz02Q63KCMBCF80JFHaRTp9XcCQQpoFR7sdOx7/8Op5sFO/74ZsPZs2cThCkDbKhhywquijBz7cYz2mFEfB3QdAMi0Q5HhKZlD8+ECr6OPJvOqQpfNyjjnkOSqR/f8H395YA0nKjbjj2nzwuz73pUpPfjCV8/VygfeN5VDYT1JQwRaFNJ1GRsKCDEBsb5mZKro9f4dBPyJ/hM2q23lQriWRpoJdEfjhgOI84fF4ynd3T9AYp0rTX1FVVF32rS1HQ2xsASzjnEGFEUBYS0dLsQsJM0aCxvS9u3O8lIpaFIl9r897V1MNbjabPhkKJ4ZPI8h3A07HwypSD6F2VNT2/wsr0FGu5JbbmfMLN3TWGLxQLL5ZJZrVYQ+XrN4kSGLEs83GmTzmQzSaN6C7nnDxeA+BuuLitrAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 46.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABz0lEQVQoz62O3WtSARiHzx9Q0SKo1kUQ6wNiElGxQUSD1t1GzdEGtQxqdBF0FdVFdKGNfWQKhlGWQXVICBEJC1utoJtq5yxdrnLpdjx51VH8QEioHZ88p49J0FW98OP9+r0Pr9BsvYLlxD1W9vpYd+gWqw7eoP3UfVpst2kdFGk5epfVXSNYrBdo7XXQfmSMjkE3bQOj7Dw8wta+Ibb1D7F23znW7D2L0NTlNoFLuq/S3HeT5fuvseW4yIqe62w/GWC97Q5LOx1s6D7PxgN22myX2XXMzY6BS1j6h9nU42Cz9SJNe86wbPdphAcvZojKKhNvVJ5M/VBUyvC0oZ+IZRmXFR5PzvPoVZqHL1NmjtZ7Yz4uKTyLqTyPfULQv37hf4bwMZVGkqdIpedQMiqvJyXi8Wk+azkSM++IT79FUTK8/5AkmZwlPTePJMnmTqt7anXItwWdhZ8SZFnGbrcTCoUQRRGfz0cwGCSRSBCJRPD7/YTDYbxeL4FAAI/Hg9PpxOVyYdwaoev64oeaptU/ilMul6lUKmSzWVOGqVqtUiwWyefzZp3L5UyfoiioqkqpVDIhtVptEWgc/Es0wkxgoVD4/baxNPKv+m9q9PwJ/Q5U1ldnBRJ72AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="use database"
-        title="use database"
-        src="/static/1aaaa07c83b3e061432c2740c3afd2af/e4a3f/%5Buse-mongodb-1%5Duse_database.png"
-        srcset="/static/1aaaa07c83b3e061432c2740c3afd2af/e4a3f/%5Buse-mongodb-1%5Duse_database.png 295w"
-        sizes="(max-width: 295px) 100vw, 295px"
+        alt="await"
+        title="await"
+        src="/static/f7501e736757bde05ad9c353f131743b/a3e09/%5Buse-svelte-1%5Dawait-1.png"
+        srcset="/static/f7501e736757bde05ad9c353f131743b/5a46d/%5Buse-svelte-1%5Dawait-1.png 300w,
+/static/f7501e736757bde05ad9c353f131743b/a3e09/%5Buse-svelte-1%5Dawait-1.png 305w"
+        sizes="(max-width: 305px) 100vw, 305px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
       />
-    </span></li>
-<li><code class="language-text">db</code> : 현재 내가 사용하는 Database를 확인할 수 있다.
-<span
+    </span></td>
+<td align="center"><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 298px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 316px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 37.919463087248324%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABPElEQVQoz5WRS0+DQBSF+UXlsbAL2wIDDEOhDx4SUlttq+nKhXGhP/947tCYGDd28eXOPZz7YMb5+PzC/vmEp9OLjUrn2J8vuLy943A8WYbHA+quR2pKskRCbMwLS3rNBScvV8iKEqZaQc4iVtsWq7rDpu2xZaOqlrzFuumg6U20sWT0Sq2SPB81RwRpImK5qe2mUphSH79xWDkOO75eUNGzaVrr3x/PaPoBUZaPG9LvJJnmpMKSU1hyU7OsILpKCaM9k5TXkVxzW8etVJr95LMwghOFIeq2Q9M9YNgd0A87dJyaJIokv1HqT66I1hrGGAS+zzvMcyyiGPNFiFjRxPXDWOF+NsfddIrpDQRBAMcU/Hc2yfhaRbmGlpfk/SzCGJPJBJ7n/QPXRl829H0PrkuBuFfkLCaZeAvS8BvmsB4fCxLRagAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 45.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAByklEQVQoz62QTWsTURSGZ6fUbgSVWoT6AXYjVF1p3LjRLloqFmupirV/QUFQKUQCUsFRSHBMOk3VLLJLtn7QGjs12KrNTDQ7jW1iIDZGkgkhkwSSx5lbuhFx1QPnnnPf99yHw5X2js7Qc3mWPSMq+688peviDL0Tz+2qcvDqM3YNKxw+7+HIiIejY1O4rsmcHH/A8UtT9I3e45it9QxM0nXmFt1nbyN1Dj1h94Vptg88tqHTdAwqAtY5pLBvbJZt/Y/o7r/DgcFJG3gf18RDTozL9NmgQ+fu0jvsYefpm3S4rrPj1A2kmPGD+USWmJFlXs/yRt+oji4ymRPe3KdVXn1I83I5zYulr6KfW1nl9cfvxPQ1FpJZkRJbHFImY2/zdgFt8R26kUTTFjHsupbJUDYrfEunqVkWCd3g53qBctnk/dIyKwmdX8Xfok9+/oJl1Wm1baCu68iyTCAQIBqN4vf7CYfDqKpKKpXC6/Xi8/lwu90oikI8HicYDIp5TdMIhUJEIhFyudzGhs5RqVRoNpvU63UhmqZJPp+n0WhQrVYpFAqUSiWKxaK9iSU85775plarCYYAttvtLfs/hyVtNn9nq9X6p/4/z4k/hP9TvgsM4CMAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="db"
-        title="db"
-        src="/static/5f42cc6bdf9e07d581d28d835ca0c057/ca501/%5Buse-mongodb-1%5Ddb.png"
-        srcset="/static/5f42cc6bdf9e07d581d28d835ca0c057/ca501/%5Buse-mongodb-1%5Ddb.png 298w"
-        sizes="(max-width: 298px) 100vw, 298px"
+        alt="await"
+        title="await"
+        src="/static/d3b95b6deaf621e90e8ecfa84de8ff9a/67145/%5Buse-svelte-1%5Dawait-2.png"
+        srcset="/static/d3b95b6deaf621e90e8ecfa84de8ff9a/5a46d/%5Buse-svelte-1%5Dawait-2.png 300w,
+/static/d3b95b6deaf621e90e8ecfa84de8ff9a/67145/%5Buse-svelte-1%5Dawait-2.png 316w"
+        sizes="(max-width: 316px) 100vw, 316px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
       />
-    </span></li>
+    </span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>위 화면을 보시면 최초에는 <code class="language-text">#await</code> 구문 안에 있는 문구를, 1초 후에는 <code class="language-text">then</code> 안의 문구를 표출하게 됩니다.</p>
+</blockquote>
+<h3 id="부분-rerendering" style="position:relative;"><a href="#%EB%B6%80%EB%B6%84-rerendering" aria-label="부분 rerendering permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>부분 rerendering</h3>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">{#key &lt;변수명>}
+  // 변수의 값이 변경될 때마다 rerendering 될 수 있도록 하는 코디
+{/key}</code></pre></div>
+<ul>
+<li>예시</li>
+</ul>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'angeloper'</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">bind:</span>value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{name}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>{Date()}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+{#key name}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>{Date()}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>{name}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+{/key}</code></pre></div>
+<ul>
 <li>
-<p><code class="language-text">db.createCollection("&lt;Collection명>")</code> : 현재 사용하는 database에 name으로 Collection을 생성할 수 있다.</p>
-<ul>
-<li>참고로, createCollection에는 capped, autoIndex, size, max등의 option이 존재합니다.</li>
-</ul>
+<p>결과</p>
+<table>
+<thead>
+<tr>
+<th align="center">초기 세팅시</th>
+<th align="center">이름을 변경하였을 시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 806px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABv0lEQVQoz6VRS2sTURidv1CzCCI29UF3FtqNi24qaIsmgsUWuijFrqT9AaWgoYh01RAC6R8QXYj4P0pVVPpIySTOI/NIOo9M3g+ayfF+N0zqA1yYC2fO9333zHcOXCG8mMZYNIFQLInIchpXF1O49jSNKwuvEXn0AtcfvsStxzu4EdthfRw3WR2+v43Q3BZC9/6GcGfjIyZW3+D2s3eYev4ek+tvMb35AZGlFGZWdjG7nsT85j4ebOzj7lqCYQ+TT15hnC2fiMa5ya8QMoqDb1mdwcB30URGsXEiWzhTXZzKNo4lC0c/ztnMBmkJWa0MUfcYAr6EoEg5fD48wNcvn2BoKkY9An0uLnrw/f5vF0HX71/W/zqk8X0fQrVaheM4sCwLmqZx6LqOUqmEQqHAme5kWeY1sWEYUBQFxWIRqqpyXaPRGCRs1OtwXRflcpkzwfM8kBEtqtVqqDONbdvDWaCtVCo8DNXtdnuwkH4mcZAoSBi4/5lQkqRhQtM0OZNumLDb7XJnSkGO5E5MAqpp3mw2eQpKGySjIKQhpr7T6QwWFtj2XD4PURTRarVGeuE+e0GBNlNCcu/1enz4v6DzE0c0/3OQVrDbAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="key"
+        title="key"
+        src="/static/f7be46ffb7fb99c1e3d01be55edce95d/764be/%5Buse-svelte-1%5Dkey-1.png"
+        srcset="/static/f7be46ffb7fb99c1e3d01be55edce95d/5a46d/%5Buse-svelte-1%5Dkey-1.png 300w,
+/static/f7be46ffb7fb99c1e3d01be55edce95d/0a47e/%5Buse-svelte-1%5Dkey-1.png 600w,
+/static/f7be46ffb7fb99c1e3d01be55edce95d/764be/%5Buse-svelte-1%5Dkey-1.png 806w"
+        sizes="(max-width: 806px) 100vw, 806px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></td>
+<td align="center"><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 784px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB8klEQVQoz6WOS2sTYRSG5y/UG4K4sagUGgWFbq0bERRai1iLogspXQRxqRsXakEUurLa4mVbBPsf1C6UdiPpZGITk7lkcmlCOprLTGYySR7n+7SC7UbwwMN5z43zKgfG5zg0+YqBsefsn1hg8PobDl5e5PDUa/adn+XIxfscu/SI4SuPOT4xy9HxhwyOPWDv2XsMjN5lzw6U2M1FTsWXGbq1RGzmLSO3lxmeXuJ0/B1D1+YZuTHH6MwLLtx5ybn4QqTnOTP9jJNTT4lNPuHE1b9R1jQT1aihGRU0s0pSr5KveRFtbCfA3vLZKLmUHB8vCHH9X/idHn64G2V1PcvnD59Y+7jC6vsV1r8kcIMu7ejAi3InWqo2Qr63QnZHf0cGxSxu0gzgh9ePgLoPjtun1upJtoRu9uj1+adQtFSSWrVCZbNMwbbIWwZ67hvFQp5yqYBl6pSLNvl8nkwmI7OqqliWRTabpVAokE6nZd1utyOHkfC8No1mk1arFeFSr9el9jyPRqMh567ryp442p43f9+IHZHDMERRkyrlcplisYhpmhiGIZ2Ij7ZtSxe6rlMqlUilUtKhpml/9rad53I5+VSxokan05GF7/vSldDCiegHQSARWsxFFjOhBcKVuBH9breLktr4Kj8nEgn52XEc/id+AolBsZxpWUczAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="key"
+        title="key"
+        src="/static/2fbdc0c10f47c7ff124d03d6501118d6/4971b/%5Buse-svelte-1%5Dkey-2.png"
+        srcset="/static/2fbdc0c10f47c7ff124d03d6501118d6/5a46d/%5Buse-svelte-1%5Dkey-2.png 300w,
+/static/2fbdc0c10f47c7ff124d03d6501118d6/0a47e/%5Buse-svelte-1%5Dkey-2.png 600w,
+/static/2fbdc0c10f47c7ff124d03d6501118d6/4971b/%5Buse-svelte-1%5Dkey-2.png 784w"
+        sizes="(max-width: 784px) 100vw, 784px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>위 화면을 보시면 <code class="language-text">key</code>로 감싼 부분만 rerendering이 되어지고, <code class="language-text">key</code> 위에 있는 사항은 변경이 되지 않은 것을 확인할 수 있습니다.</p>
+</blockquote>
 </li>
-<li><code class="language-text">show collection</code> : Collection을 생성한 내역을 확인하기 위해서 사용합니다.
-<span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 264px;"
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 44.31818181818182%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABl0lEQVQoz31RyW7iQBD1P8x3gFlFImPstrvbxm0IMTb7IBjCJFGUSy6RIkXz6W+q2uEQDjk81fJqedXtRCqBTMbIpndQYwOVZhaxTm1s7u6hycp0bGOdGcRUb0E113CE1Jjcz/Hx+Q+r3W8cH844nM62ebZY4eXtHfvjifAH690e5XKNxEwQ01J5BV7isMKIpyf1BlZyUZDPClJY0MIS06KyNp/Na78ov6ukfr7MERSktFFneX0ygRUfH/6iXG2giUu+uDSf2jrmT4/P1i+qBQSJ4is2+wMcnfKGpIZiaESEZExn0Fb2L7mar2tTk9uc4su+6sNIwnF9KhYCgrBcb7He8js+4fz8irJaQoQhlJQwJkNmDFbbHRaknPmK3jhkXinkeY5+vw/nV0tBUgMP9EcBgiCEiGIoeoqQcp7nwRsOMfR9+P4IQVjzrIr9C++PRvVATygU8wpxLNFoNOC6LprNpvXZtlotC469oY9sMoMhBCJGk3LMcY9Ltt1u8y9r3NzcYjAYoNPp/Ihut4ter2fRJVzzPPA/11VGiA0hRrwAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="show_collection"
-        title="show_collection"
-        src="/static/2abd48c4a8d5f56364a4cbd19549df76/e61aa/%5Buse-mongodb-1%5Dshow_collection.png"
-        srcset="/static/2abd48c4a8d5f56364a4cbd19549df76/e61aa/%5Buse-mongodb-1%5Dshow_collection.png 264w"
-        sizes="(max-width: 264px) 100vw, 264px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-    </span></li>
-<li><code class="language-text">db.score.find()</code> : Collection에 있는 내용을 확인하기 위해서 사용합니다.
-<span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 512px;"
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 55.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABeElEQVQoz42S61KDQAyF+0DW0goULFVhr7BcirXq+P7vcUyC1Drq6I/D2YTJl2RhEfoDDk8n+LZDLedntMMI27SorIdy/uzK1X9q0fQDuvEokPH0iuPLG4bjCeHwKDJ1QN0N4gwujfsCmHPs2jdYlNpAUaI7jOhJyliUSovXIcA4h9D1cHUDH1ppbHwNzQDrJMdbst9XioD0sPSiaXto7kSxoiaVUiSNh7JCnucoikJiS7D9/g673U70UJZSxzVZlmHh+I6UkY6WRja0hnGNxL7paFqDKIpEm80G18vlOY7Wa6xWKyyXV7i5iZFutxOQ6TOI1+ezNKB7Y+CaChkWx4k4x3NujpM0nYDWuQvgBGJnsGNgpS+A8Rk259h52iRJf55wBrK7iwnX/wbSJSttJ6D/Dqz015V/BaY/Tvi5sr5YmQu4ME4IyOePeFZEHyahd2nKQPq/LKluB5EPvYg/SOhHgrbYZrkov92dz6J88nSb4bbYo6Df6R0EA4ByaqSROwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="db_score_find"
-        title="db_score_find"
-        src="/static/bf81cca593f21ea9364146676ff1aefa/01e7c/%5Buse-mongodb-1%5Ddb_score_find.png"
-        srcset="/static/bf81cca593f21ea9364146676ff1aefa/5a46d/%5Buse-mongodb-1%5Ddb_score_find.png 300w,
-/static/bf81cca593f21ea9364146676ff1aefa/01e7c/%5Buse-mongodb-1%5Ddb_score_find.png 512w"
-        sizes="(max-width: 512px) 100vw, 512px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-    </span></li>
-<li>이 외에도 입력, 제거, 삭제등의 명령어가 존재합니다.</li>
-<li>이 부분은 <a href="https://docs.mongodb.com/manual/">https://docs.mongodb.com/manual/</a> 이 사이트를 확인하시기 바랍니다.</li>
 </ul>
-<h2 id="주의사항" style="position:relative;"><a href="#%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD" aria-label="주의사항 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>주의사항</h2>
+<h3 id="html-출력" style="position:relative;"><a href="#html-%EC%B6%9C%EB%A0%A5" aria-label="html 출력 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>html 출력</h3>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">{@html &lt;변수명>}</code></pre></div>
 <ul>
-<li>저의 경우에는 스터디용으로 사용하였던 것으로 인증 부분을 확인하지 않았습니다. 추후, 이 부분도 한번 알아보도록 하겠습니다.</li>
-</ul></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAEz0lEQVQ4ywHEBDv7ABMRHWZNO96ta+zlyfr44vvy1vHixcSabYRXL0Y5N0MxKlE5KndaRFxQQ1lKPnxZPn9WOTYuMxMVJSIXHQDCupuFa1XEj1Lr16zu8N2TjouTi4bAmnypcjp5aFFcSDVNOChtWER1XUWCYkSFZEORbElrUj11XlibZ1cA/eq/u7CUpX1L5L6E9/bihoSGVVRggXt8nm5DmH5Yf2pMTDUlVTwopXpPw5FauYZTuIFSaE46nXJmr31uAPr1z+301rScc9unZru1qn5+iaOmo+n14KWNbbCQaOTewqqhg6CLYL6aX9asacOWYLSJWG5cR72Pa6ZvUgD5+9b6/Nqwp5V2aGqIj5PW3sz//+f//+nOzrPp5rn68s39+9b09s3DrHq9nF+WhFxqYUZeU0fstYCfZkUA/PLJzrqWW1dZy9XH///s/P7j9frc+v/h7fPXo6CMkIRtioBtTkZCT1FTkqerrqaXoIVstaOH15Feg2FJAPbgtq2UdVpPRsjLvP//5vT53Pn+4Pf83v//6ISEfGdhVYF+b4KBdX2FiIqXodutteynm9GuiHBWRg4OGwD947C/oXxkUUVxcnH7/+T4/d/1+t3//+bN1sdcaXFbaWhicnFacXN+lJiIqLJodoppcXk/SFAXKDsKECMA382m2sSadWNTTkdFxcq9///l///k0NvOPlFlQVVjRFliOVFaPl5ndZylcI6XN09dTGZzQFBZTl9lKTNBALmmgp2NcnxlUlVGPXF1c///793j0TxPY0hbZ01hazhMVThOVj9ib0Btf1FlalptcD1WZkZVW0RQUT5JTAD/9MPAr45WRjxTR0E/Pj+5w7VhbHQ3R1VPYGtAUV4wQU5JYWZLb3c3VmJeZ2FbaWkpPU0yRlE1PUArNTsA9OXC2cysTkI8TEQ+QTs5KS46NkFNLDtIOENNM0RSKz1MVnR9Q19rITREVGNiOUxTJDdFIzhGJzA5JCwzAHtmU6Z5VE4/OEY/O01DPTgzMSgwOUNJT1tfYpibkSYuORgjMx0oNSo4QjpTWyo/SiY5RBwsOxolMxwlLgAhGh1HNSpYSD1hUERoVEVVSkCdnZSdnZWkqKD///aOjokPFyQhKzU1RUw5TVYnNT8vQkodJzMJDx0HDBsAGhQbVTwvQjgxbFdIX05Ecmxln5uQcXJuj5OL19vKiIuFCBEfKzU+MkFKNkhOMD9HNktVJjM9IB8iLS0tABIOFWJGM05BOGBPQmNcVG9ya6Oai66omoOHiKqqoWBmZRgeKUFMUjtJTzFARzhIT05ZWW9qXXxwWkREQAAnJCZ7cGDBqodYST59c2J7c2KFeWmso5WSl5a+sqmQhHhPS0NFSUg+TE5WXVh2cWB7c2NnaWEgJCsAAhAAuaF6fW5Yt593ZlVFYU4+alRDZlE/nZGFubGr3c7BqJ6SUEpBbGJTenBdd21bTk9OQ1VbZG1qCgwXCAoVALudcpJ/X3lsUV1PPmhVQmpYRmBSQ3NpXdzVyevm27elj31mT3hqV0xHPxoiKhouPYmMgJCKewEFEAoMFwB+alFQSzo/Pi9JPzJgTjxiUD5hVEJXTT5rZVqIemVtXEhYUENNSj4kJCMdISVPUEtHSUZxbmUuLzACBhFPFBjtbqUEJwAAAABJRU5ErkJggg==" alt="angeloper" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/41ac3f405303333dc3b0695aacea1301/e5b88/profile.png 1x,
+<li>예시</li>
+</ul>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">let</span> testString <span class="token operator">=</span> <span class="token string">'&lt;b>&lt;font color="red">안녕하세요.&lt;/font>&lt;/b>'</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">></span></span>
+  {@html testString}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">></span></span></code></pre></div>
+<ul>
+<li>결과
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 598px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 41%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABQUlEQVQoz52PvUtCYRSHLxE4NNQQJEKYlWbQ0tBiRFshFFlmEprS3BgNTRZl6dUgIiroS4OUNIiohnZtyv6GoIyC2gyCq/fpXhNdHNIDz/u8PzjnwBF0ziO6PRHaHIe0zx6jVdwzf4bedUqH60RxBK1tG9Okny6bH5N9k96ZIGZHEOPURjGbpwPox9fQWVcQmsb26JyL0DCyQ4vtAI11F6M3SvPEPga3stAdpXHIh2F0Cb11GYtXxOIRGVTc71zHbPPRZ1+ldXgRzcACQij5ROAiQziZQUxkUHMR9V8inHgkHH8gFEsjnqeKBBVCsVQ5h+NptpQegewzXF/C3RXc38Ct4p8c9ZYg5XJI2Tek9w+kzy+kl1fyuW+kgoyUL5TJ/wO1T5CVrVWR5YprQFAfSkE1hcKfoeJaTpZLQ3Idw9XqF+Z5FZJRVhyGAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="html"
+        title="html"
+        src="/static/9ac02fa02a15d9fd92f1232332645d15/0c69d/%5Buse-svelte-1%5Dhtml.png"
+        srcset="/static/9ac02fa02a15d9fd92f1232332645d15/5a46d/%5Buse-svelte-1%5Dhtml.png 300w,
+/static/9ac02fa02a15d9fd92f1232332645d15/0c69d/%5Buse-svelte-1%5Dhtml.png 598w"
+        sizes="(max-width: 598px) 100vw, 598px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></li>
+</ul>
+<h3 id="debuging" style="position:relative;"><a href="#debuging" aria-label="debuging permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>debuging</h3>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html">{@debug <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>변수명</span><span class="token punctuation">></span></span>}</code></pre></div>
+<h3 id="reactive-programing" style="position:relative;"><a href="#reactive-programing" aria-label="reactive programing permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>reactive programing</h3>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">`$:` 을 사용하여 반응성을 극대화 처리</code></pre></div></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAEz0lEQVQ4ywHEBDv7ABMRHWZNO96ta+zlyfr44vvy1vHixcSabYRXL0Y5N0MxKlE5KndaRFxQQ1lKPnxZPn9WOTYuMxMVJSIXHQDCupuFa1XEj1Lr16zu8N2TjouTi4bAmnypcjp5aFFcSDVNOChtWER1XUWCYkSFZEORbElrUj11XlibZ1cA/eq/u7CUpX1L5L6E9/bihoSGVVRggXt8nm5DmH5Yf2pMTDUlVTwopXpPw5FauYZTuIFSaE46nXJmr31uAPr1z+301rScc9unZru1qn5+iaOmo+n14KWNbbCQaOTewqqhg6CLYL6aX9asacOWYLSJWG5cR72Pa6ZvUgD5+9b6/Nqwp5V2aGqIj5PW3sz//+f//+nOzrPp5rn68s39+9b09s3DrHq9nF+WhFxqYUZeU0fstYCfZkUA/PLJzrqWW1dZy9XH///s/P7j9frc+v/h7fPXo6CMkIRtioBtTkZCT1FTkqerrqaXoIVstaOH15Feg2FJAPbgtq2UdVpPRsjLvP//5vT53Pn+4Pf83v//6ISEfGdhVYF+b4KBdX2FiIqXodutteynm9GuiHBWRg4OGwD947C/oXxkUUVxcnH7/+T4/d/1+t3//+bN1sdcaXFbaWhicnFacXN+lJiIqLJodoppcXk/SFAXKDsKECMA382m2sSadWNTTkdFxcq9///l///k0NvOPlFlQVVjRFliOVFaPl5ndZylcI6XN09dTGZzQFBZTl9lKTNBALmmgp2NcnxlUlVGPXF1c///793j0TxPY0hbZ01hazhMVThOVj9ib0Btf1FlalptcD1WZkZVW0RQUT5JTAD/9MPAr45WRjxTR0E/Pj+5w7VhbHQ3R1VPYGtAUV4wQU5JYWZLb3c3VmJeZ2FbaWkpPU0yRlE1PUArNTsA9OXC2cysTkI8TEQ+QTs5KS46NkFNLDtIOENNM0RSKz1MVnR9Q19rITREVGNiOUxTJDdFIzhGJzA5JCwzAHtmU6Z5VE4/OEY/O01DPTgzMSgwOUNJT1tfYpibkSYuORgjMx0oNSo4QjpTWyo/SiY5RBwsOxolMxwlLgAhGh1HNSpYSD1hUERoVEVVSkCdnZSdnZWkqKD///aOjokPFyQhKzU1RUw5TVYnNT8vQkodJzMJDx0HDBsAGhQbVTwvQjgxbFdIX05Ecmxln5uQcXJuj5OL19vKiIuFCBEfKzU+MkFKNkhOMD9HNktVJjM9IB8iLS0tABIOFWJGM05BOGBPQmNcVG9ya6Oai66omoOHiKqqoWBmZRgeKUFMUjtJTzFARzhIT05ZWW9qXXxwWkREQAAnJCZ7cGDBqodYST59c2J7c2KFeWmso5WSl5a+sqmQhHhPS0NFSUg+TE5WXVh2cWB7c2NnaWEgJCsAAhAAuaF6fW5Yt593ZlVFYU4+alRDZlE/nZGFubGr3c7BqJ6SUEpBbGJTenBdd21bTk9OQ1VbZG1qCgwXCAoVALudcpJ/X3lsUV1PPmhVQmpYRmBSQ3NpXdzVyevm27elj31mT3hqV0xHPxoiKhouPYmMgJCKewEFEAoMFwB+alFQSzo/Pi9JPzJgTjxiUD5hVEJXTT5rZVqIemVtXEhYUENNSj4kJCMdISVPUEtHSUZxbmUuLzACBhFPFBjtbqUEJwAAAABJRU5ErkJggg==" alt="angeloper" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/41ac3f405303333dc3b0695aacea1301/e5b88/profile.png 1x,
 /static/41ac3f405303333dc3b0695aacea1301/e7bd6/profile.png 1.5x,
 /static/41ac3f405303333dc3b0695aacea1301/a12fc/profile.png 2x" /><img loading="lazy" width="72" height="72" srcset="/static/41ac3f405303333dc3b0695aacea1301/e5b88/profile.png 1x,
 /static/41ac3f405303333dc3b0695aacea1301/e7bd6/profile.png 1.5x,
-/static/41ac3f405303333dc3b0695aacea1301/a12fc/profile.png 2x" src="/static/41ac3f405303333dc3b0695aacea1301/e5b88/profile.png" alt="angeloper" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->angeloper</span></a><div class="author-introduction">Development is fun and it&#x27;s worth living.</div><p class="author-socials"><a href="https://github.com/kskmw2000">GitHub</a></p></div></div></div></div><ul class="navigator"><li></li><li><a rel="next" href="/Frontend/use-svelte-1/">스벨트 사용하기-1<!-- --> →</a></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/kskmw2000">kskmw2000</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/Database/use-mongodb-1/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-66dcbe49226a0e9c124b.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-38fe08ef875e5952d5f0.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-86e46f66290b6aa04eae.js"],"component---src-pages-404-js":["/component---src-pages-404-js-ab1d14d8fe8d5f781253.js"],"component---src-pages-about-js":["/component---src-pages-about-js-f43a9b41ff18f6404175.js"],"component---src-pages-index-js":["/component---src-pages-index-js-948fb9b893fb5df08b3f.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-86e46f66290b6aa04eae.js" async=""></script><script src="/69ca9dfa785447e3d8b116b383997bcdc8df623a-d95b5bcd9b6035cbd041.js" async=""></script><script src="/4213a708e3c149581c4f5e97d71bfc3d00067ec6-752d1b53e3b973e8191e.js" async=""></script><script src="/428cc97b99dda93b6f894a0194db3c3a0ab8bbd5-b9cdbc495dc2d8ef3640.js" async=""></script><script src="/styles-9605c3fbd8ad08ecf405.js" async=""></script><script src="/app-66dcbe49226a0e9c124b.js" async=""></script><script src="/framework-727eca7a674e10b21a9f.js" async=""></script><script src="/webpack-runtime-0e9f101adb4c8ab915e0.js" async=""></script></body></html>
+/static/41ac3f405303333dc3b0695aacea1301/a12fc/profile.png 2x" src="/static/41ac3f405303333dc3b0695aacea1301/e5b88/profile.png" alt="angeloper" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->angeloper</span></a><div class="author-introduction">Development is fun and it&#x27;s worth living.</div><p class="author-socials"><a href="https://github.com/kskmw2000">GitHub</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/Database/use-mongodb-1/">← <!-- -->MongoDB 사용법-1</a></li><li></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/kskmw2000">kskmw2000</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/Frontend/use-svelte-1/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-66dcbe49226a0e9c124b.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-38fe08ef875e5952d5f0.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-86e46f66290b6aa04eae.js"],"component---src-pages-404-js":["/component---src-pages-404-js-ab1d14d8fe8d5f781253.js"],"component---src-pages-about-js":["/component---src-pages-about-js-f43a9b41ff18f6404175.js"],"component---src-pages-index-js":["/component---src-pages-index-js-948fb9b893fb5df08b3f.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-86e46f66290b6aa04eae.js" async=""></script><script src="/69ca9dfa785447e3d8b116b383997bcdc8df623a-d95b5bcd9b6035cbd041.js" async=""></script><script src="/4213a708e3c149581c4f5e97d71bfc3d00067ec6-752d1b53e3b973e8191e.js" async=""></script><script src="/428cc97b99dda93b6f894a0194db3c3a0ab8bbd5-b9cdbc495dc2d8ef3640.js" async=""></script><script src="/styles-9605c3fbd8ad08ecf405.js" async=""></script><script src="/app-66dcbe49226a0e9c124b.js" async=""></script><script src="/framework-727eca7a674e10b21a9f.js" async=""></script><script src="/webpack-runtime-0e9f101adb4c8ab915e0.js" async=""></script></body></html>
