@@ -271,3 +271,5 @@ Student(id=6, name=kskmw2000, createdAt=2022-01-09T20:05:16.210, updatedAt=2022-
 - 보셨나요? 테스트 데이터를 입력할 시 또는 수정할 시에는 setCreatedAt, setUpdatedAt를 사용하지 않았지만, Entity EventListener를 사용하므로써 값이 정상적으로 들어간 부분을 확인할 수 있었습니다. 그러나, 모든 Entity Class에 넣는 것은 Don`t Repeat Yourself(DRY원칙) 및 중복코드가 너무 많이 생기는 부분이 있습니다.
 
 이 부분에 대해서는 다음 섹션을 통해서 중복을 제거할 수 있는 방법을 알아보겠습니다.
+
+> Fastcampus의 스프링 강좌를 보고 정리한 내역입니다.
